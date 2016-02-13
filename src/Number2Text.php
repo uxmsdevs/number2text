@@ -4,7 +4,7 @@
  * Creates textual equivalent of given numbers which as long as 450 digits (in Turkish)
  */
 /**
- * Verilen bir sayiyinin turkce olarak metinsel okunusunu verir
+ * Verilen bir sayinin turkce olarak metinsel okunusunu verir
  */
 class Number2Text
 {
