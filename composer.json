@@ -1,0 +1,23 @@
+{
+    "name": "uxms/number2text",
+    "description": "Creates textual equivalent of given numbers which as long as 450 digits (in Turkish)",
+    "homepage": "https://uxms.net",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Uxms Devs",
+            "email": "info@uxms.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "classmap": [
+            "src"
+        ],
+        "psr-4": {
+            "Uxms\\Number2Text\\": "src/"
+        }
+    }
+}
