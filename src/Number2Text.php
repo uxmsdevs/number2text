@@ -99,7 +99,7 @@ class Number2Text
         /* Ayrilmis basamak sayisini buluyoruz */
         $this->stepCount = count($this->step);
 
-        /* Method reform the number */
+        /* Method reforms the number */
         /* Sayinin duzenlenmesi islemlerini bu metodumuz gerceklestiriyor */
         $this->reFormNumber();
 
@@ -108,9 +108,9 @@ class Number2Text
         $this->convertToTextual();
     }
 
-    private function isNegative($sayi = 0)
+    private function isNegative($number = 0)
     {
-        return ($sayi < 0) ? true : (($sayi > 0) ? false : 0);
+        return ($number < 0) ? true : (($number > 0) ? false : 0);
     }
 
     private function reFormNumber()
@@ -152,23 +152,23 @@ class Number2Text
     private function convertToTextual()
     {
         /* For each of the step, we are concatenating proper string to newNumber variable */
-        /* yeniSayi degiskenine her basamak icin ayri ayri yazdiriyoruz */
-        foreach($this->step as $b) {
+        /* newNumber degiskenine her basamak icin ayri ayri yazdiriyoruz */
+        foreach($this->step as $s) {
 
             /* If 1. digit of step (hundreds digit) bigger than zero */
             /* Basamagin 1. rakami (yuzler hanesi) 0'dan buyukse */
-            if ($b[0] > 0) {
+            if ($s[0] > 0) {
                 /* Adding textual converts and also "yuz" to the variable */
                 /* Degiskene rakamin harfle yazilisi ve "yuz" ifadesini ekliyoruz */
-                $this->newNumber[] = ($b[0] > 1 ? $this->unitsDigits[$b[0]] . '' : '') . $this->biggerDigits[1];
+                $this->newNumber[] = ($s[0] > 1 ? $this->unitsDigits[$s[0]] . '' : '') . $this->biggerDigits[1];
             }
 
             /* If 2. digit of step (tens digit) bigger than zero */
             /* Basamagin 2. rakami (onlar hanesi) 0'dan buyukse */
-            if ($b[1] > 0){
+            if ($s[1] > 0){
                 /* Adding textual converts to the variable */
                 /* Degiskene rakamin harfle yazilisini ekliyoruz */
-                $this->newNumber[] = $this->tensDigits[$b[1]];
+                $this->newNumber[] = $this->tensDigits[$s[1]];
             }
 
             /*
@@ -181,8 +181,8 @@ class Number2Text
              * ve birinci basamak 0'a, ikinci basamak 0'a, ucuncu basamakta 1'e esitse,
              * "Bir Bin" ifadesi yerine "Bin" seklinde yazilmasini saglar
              */
-            if ($b[2] > 0 && !($this->stepCount == 2 && $b[0] == 0 && $b[1] == 0 && $b[2] == 1)) {
-                $this->newNumber[] = $this->unitsDigits[$b[2]];
+            if ($s[2] > 0 && !($this->stepCount == 2 && $s[0] == 0 && $s[1] == 0 && $s[2] == 1)) {
+                $this->newNumber[] = $this->unitsDigits[$s[2]];
             }
 
             /* 
@@ -193,7 +193,7 @@ class Number2Text
              * Degiskene basamagin ismini (bin, milyon, milyar) ekliyoruz.
              * Burada o basamakta bulunan sayinin 0'dan buyuklugune de bakiyoruz
              */
-            if ($this->stepCount > 1 && ($b[0] > 0 || $b[1] > 0 || $b[2] > 0) ) {
+            if ($this->stepCount > 1 && ($s[0] > 0 || $s[1] > 0 || $s[2] > 0) ) {
                 $this->newNumber[] = $this->biggerDigits[$this->stepCount];
             }
 
