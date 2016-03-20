@@ -1,5 +1,5 @@
 {
-    "name": "uxms/number2text",
+    "name": "uxmsdevs/number2text",
     "description": "Creates textual equivalent of given numbers which as long as 450 digits (in Turkish)",
     "homepage": "https://uxms.net",
     "license": "MIT",
